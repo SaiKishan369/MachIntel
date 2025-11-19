@@ -1,0 +1,111 @@
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+
+# IDE & Editor
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+*.egg-info/
+.installed.cfg
+*.egg
+venv/
+ENV/
+env/
+.venv
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# OS user files (OneDrive, user profile)
+OneDrive/
+Documents/
+Downloads/
+Desktop/
+Favorites/
+AppData/
+NTUSER.DAT
+NTUSER.DAT{*
+ntuser.dat.LOG*
+ntuser.ini
+
+# Large cache directories
+.gradle/
+.cache/
+.config/
+.codeium/
+.cursor/
+.continue/
+.docker/
+.gemini/
+.gk/
+.ipython/
+.jupyter/
+.keras/
+.kiro/
+.matplotlib/
+.p2/
+.skiko/
+.streamlit/
+.trae/
+.trae-aicc/
+.void-editor/
+.windsurf/
+
+# Other
+*.zip
+.lesshst
+Creative\ Cloud\ Files\ Personal\ Account*/
+
+# Project-specific exclusions
+collusus.zip
+rotechlanding.zip
+temp/
+demo/
+eclipse-workspace/
+eclipse/
+my-react-app/
+node_modules/
+clangcrash2/
+A1practice/
+Programming/
+PromptEngineering/
+MicroSoft\ office/
+accident\ preention/
+sports\ reports/
+location-tracking/
+AndroidStudioProjects/

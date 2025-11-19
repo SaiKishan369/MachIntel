@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Innovative Business Flow Presentation</title>
+  <style>
+    :root {
+      --primary-yellow: #ffd700;
+      --dark-yellow: #b8860b;
+      --black: #121212;
+      --dark-gray: #1e1e1e;
+      --light-gray: #333333;
+      --text-gray: #a0a0a0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    body {
+      background: var(--black);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+      color: #fff;
+    }
+
+    .flowchart {
+      max-width: 1400px;
+      margin: 2rem auto;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .flow-row {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 2rem;
+    }
+
+    .flow-item {
+      background: var(--dark-gray);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.3),
+        0 6px 6px rgba(0, 0, 0, 0.2),
+        0 0 100px rgba(255, 215, 0, 0.05);
+      opacity: 0;
+      transform: translateY(30px) rotateX(-10deg);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 215, 0, 0.1);
+    }
+
+    .flow-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--dark-yellow), var(--primary-yellow));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .flow-item:hover::before {
+      transform: scaleX(1);
+    }
+
+    .flow-item.active {
+      opacity: 1;
+      transform: translateY(0) rotateX(0);
+    }
+
+    .flow-item h3 {
+      color: var(--primary-yellow);
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    }
+
+    .flow-item p {
+      color: var(--text-gray);
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    .flow-item .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark-yellow);
+      transition: all 0.3s ease;
+    }
+
+    .flow-item:hover .icon {
+      color: var(--primary-yellow);
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .flow-connector {
+      position: relative;
+      height: 60px;
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+
+    .flow-connector::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--dark-yellow), var(--primary-yellow));
+      transform: translate(-50%, -50%);
+    }
+
+    .flow-connector.active {
+      opacity: 1;
+    }
+
+    .stats {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 215, 0, 0.1);
+    }
+
+    .stat-item {
+      flex: 1;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary-yellow);
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-gray);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .floating {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .flow-item:hover {
+      background: var(--light-gray);
+      border-color: var(--dark-yellow);
+      transform: translateY(-5px);
+      box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.4),
+        0 0 100px rgba(255, 215, 0, 0.1);
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="flowchart">
+    <div class="flow-row">
+      <div class="flow-item">
+        <i class="fas fa-lightbulb icon"></i>
+        <h3>Strategic Vision</h3>
+        <p>Revolutionizing industry standards through innovative solutions and market leadership.</p>
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-value">85%</div>
+            <div class="stat-label">Growth Rate</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">2X</div>
+            <div class="stat-label">Market Impact</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-connector"></div>
+
+    <div class="flow-row">
+      <div class="flow-item">
+        <i class="fas fa-chart-line icon"></i>
+        <h3>Market Intelligence</h3>
+        <p>Data-driven insights powering strategic decisions and market positioning.</p>
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-value">$50M</div>
+            <div class="stat-label">Market Size</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">32%</div>
+            <div class="stat-label">Market Share</div>
+          </div>
+        </div>
+      </div>
+      <div class="flow-item">
+        <i class="fas fa-cogs icon"></i>
+        <h3>Operational Excellence</h3>
+        <p>Streamlined processes ensuring efficient delivery and scalable solutions.</p>
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-value">99%</div>
+            <div class="stat-label">Efficiency</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">24/7</div>
+            <div class="stat-label">Availability</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-connector"></div>
+
+    <div class="flow-row">
+      <div class="flow-item">
+        <i class="fas fa-rocket icon"></i>
+        <h3>Innovation Pipeline</h3>
+        <p>Cutting-edge developments driving future growth and competitive advantage.</p>
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-value">15+</div>
+            <div class="stat-label">Patents</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">3X</div>
+            <div class="stat-label">ROI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-connector"></div>
+
+    <div class="flow-row">
+      <div class="flow-item">
+        <i class="fas fa-handshake icon"></i>
+        <h3>Strategic Partnership</h3>
+        <p>Collaborative opportunities for exponential growth and market dominance.</p>
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-value">200%</div>
+            <div class="stat-label">Growth Potential</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">5Y</div>
+            <div class="stat-label">Partnership Term</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const flowItems = document.querySelectorAll('.flow-item');
+      const connectors = document.querySelectorAll('.flow-connector');
+      
+      function animateElements() {
+        flowItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('active');
+            if (connectors[index]) {
+              connectors[index].classList.add('active');
+            }
+          }, index * 400);
+        });
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('floating');
+          }
+        });
+      }, { threshold: 0.5 });
+
+      flowItems.forEach(item => {
+        observer.observe(item);
+      });
+
+      animateElements();
+    });
+  </script>
+</body>
+</html>
